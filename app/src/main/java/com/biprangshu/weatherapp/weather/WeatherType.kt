@@ -1,5 +1,8 @@
 package com.biprangshu.weatherapp.weather
 
+import androidx.annotation.DrawableRes
+import com.biprangshu.weatherapp.R
+
 sealed class WeatherType(
     val weatherDesc: String,
     @DrawableRes val iconRes: Int

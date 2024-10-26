@@ -8,11 +8,10 @@ import android.location.LocationManager
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
-import androidx.core.content.getSystemService
-import com.biprangshu.weatherapp.Manifest
+
 import com.biprangshu.weatherapp.domain.location.LocationTracker
 import com.google.android.gms.location.FusedLocationProviderClient
-import kotlinx.coroutines.ExperimentalCoroutinesApi
+
 import kotlinx.coroutines.suspendCancellableCoroutine
 import javax.inject.Inject
 import kotlin.coroutines.resume
@@ -21,7 +20,6 @@ class DefaultLocationTracker @Inject constructor(
     private val locationClient: FusedLocationProviderClient,
     private val application: Application
 ): LocationTracker{
-    @OptIn(ExperimentalCoroutinesApi::class)
     @RequiresApi(Build.VERSION_CODES.P)
     override suspend fun getCurrentLocation(): Location? {
         val hasAccessFineLocationPermisson= ContextCompat.checkSelfPermission(
